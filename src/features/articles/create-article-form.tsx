@@ -489,7 +489,7 @@ const CreateArticleForm = () => {
             <div className="flex items-center justify-between px-6 py-4 bg-background">
                 {/* LEFT */}
                 <button
-                    onClick={() => navigate({ to: "/dashboard" })}
+                    onClick={() => navigate({ to: "/articles" })}
                     className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition"
                 >
                     <ArrowLeft className="w-4 h-4" />

@@ -14,7 +14,12 @@ function RouteComponent() {
             <div className="space-y-6">
                 <h1 className="text-2xl font-bold">Track Your Submissions</h1>
                 <div
-                    onClick={() => navigate({ to: "/articles/author/456789" })}
+                    onClick={() =>
+                        navigate({
+                            to: "/articles/author/$articleid",
+                            params: { articleid: "456789" },
+                        })
+                    }
                     className="cursor-pointer"
                 >
                     <ArticlesCard />
