@@ -10,7 +10,10 @@ function RouteComponent() {
     const navigate = useNavigate();
 
     const handleNaviagate = () => {
-        navigate({ to: "/articles/12345" });
+        navigate({
+            to: "/articles/$articleId",
+            params: { articleId: "12345" },
+        });
     };
 
     return (
