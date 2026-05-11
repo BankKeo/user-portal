@@ -42,6 +42,14 @@ export const MOCK_SUBMISSIONS: Article[] = [
       { date: "2025-02-21", action: "Decision: Minor revision required", by: "Editor-in-Chief" },
       { date: "2025-02-21", action: "Revision request sent to author", by: "Editorial Office" },
     ],
+    reviewerComments: [
+      {
+        reviewer: "Prof. Ivan Novak",
+        date: "2025-02-14",
+        recommendation: "Minor Revision",
+        comment: "The manuscript presents an interesting dataset on heavy metal accumulation along the Sava River corridor. The use of positive matrix factorisation is appropriate and the seasonal sampling design is commendable.\n\nHowever, several issues must be addressed before acceptance:\n\n1. The enrichment factor calculations in Table 3 appear to use crustal background values from a different geochemical province. Please justify the choice of reference values or recalculate using region-specific baselines.\n\n2. Figure 5 lacks error bars for the seasonal means. Given the high spatial variability reported, uncertainty bounds are essential for interpreting the results.\n\n3. The discussion of spring flood pulses (Section 4.2) would benefit from a brief comparison with published flux estimates for comparable European rivers (e.g. Rhine, Danube).\n\n4. Minor: please check the units in the caption of Figure 2 — 'mg·kg⁻¹ dw' should be used consistently throughout.",
+      },
+    ],
   },
   {
     id: "sub-003",
