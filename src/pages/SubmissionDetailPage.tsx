@@ -2,12 +2,12 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import {
   ArrowLeft, Calendar, Tag, Users, ShieldCheck,
   Clock, FileText, CheckCircle2, AlertTriangle, XCircle,
-  BookOpen, RefreshCw,
+  BookOpen, RefreshCw, MessageSquare,
 } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { useSubmissions } from "../hooks/useSubmissions";
 import { categories } from "../data/categories";
-import type { Status } from "../types/index";
+import type { Status, ReviewerComment } from "../types/index";
 
 // ─── Status config ────────────────────────────────────────────────────────────
 
@@ -154,6 +154,54 @@ function Section({ title, icon: Icon, children }: {
   );
 }
 
+// ─── Reviewer comments ────────────────────────────────────────────────────────
+
+const RECOMMENDATION_STYLE: Record<string, string> = {
+  "Accept":         "bg-green-50 text-green-700 dark:bg-green-950/40 dark:text-green-400",
+  "Minor Revision": "bg-amber-50 text-amber-700 dark:bg-amber-950/40 dark:text-amber-400",
+  "Major Revision": "bg-orange-50 text-orange-700 dark:bg-orange-950/40 dark:text-orange-400",
+  "Reject":         "bg-red-50 text-red-700 dark:bg-red-950/40 dark:text-red-400",
+};
+
+function ReviewerComments({ comments }: { comments: ReviewerComment[] }) {
+  return (
+    <div className="space-y-4">
+      {comments.map((c, i) => {
+        const date = new Date(c.date).toLocaleDateString("en-GB", {
+          day: "numeric", month: "long", year: "numeric",
+        });
+        return (
+          <div key={i} className="border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden">
+            <div className="flex items-center justify-between px-4 py-3 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700">
+              <div className="flex items-center gap-2">
+                <div className="w-7 h-7 rounded-full bg-green-100 dark:bg-green-900/40 flex items-center justify-center shrink-0">
+                  <Users className="w-3.5 h-3.5 text-green-700 dark:text-green-400" />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-gray-900 dark:text-white">{c.reviewer}</p>
+                  <p className="text-xs text-gray-400 dark:text-gray-500">{date}</p>
+                </div>
+              </div>
+              {c.recommendation && (
+                <span className={`px-2.5 py-1 rounded-full text-xs font-semibold ${RECOMMENDATION_STYLE[c.recommendation] ?? ""}`}>
+                  {c.recommendation}
+                </span>
+              )}
+            </div>
+            <div className="px-4 py-4">
+              {c.comment.split("\n\n").map((para, j) => (
+                <p key={j} className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed mb-3 last:mb-0">
+                  {para}
+                </p>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 // ─── Main page ────────────────────────────────────────────────────────────────
 
 export default function SubmissionDetailPage() {
@@ -282,6 +330,13 @@ export default function SubmissionDetailPage() {
                 className="rich-content text-sm text-gray-700 dark:text-gray-300 leading-relaxed"
                 dangerouslySetInnerHTML={{ __html: article.abstract }}
               />
+            </Section>
+          )}
+
+          {/* Reviewer comments */}
+          {article.reviewerComments && article.reviewerComments.length > 0 && (
+            <Section title="Reviewer Comments" icon={MessageSquare}>
+              <ReviewerComments comments={article.reviewerComments} />
             </Section>
           )}
 

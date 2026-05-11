@@ -8,6 +8,13 @@ export type Status =
 
 export type Role = "Admin" | "Editor" | "Reviewer" | "Author";
 
+export interface ReviewerComment {
+  reviewer: string;
+  date: string;
+  recommendation?: Recommendation;
+  comment: string;
+}
+
 export interface Article {
   id: string;
   title: string;
@@ -21,6 +28,7 @@ export interface Article {
   abstract: string;
   keywords: string[];
   timeline: { date: string; action: string; by: string }[];
+  reviewerComments?: ReviewerComment[];
 }
 
 export type ReviewStatus = "Pending" | "Completed" | "Overdue" | "Declined";
