@@ -200,7 +200,7 @@ export default function Navbar() {
                                 className="hidden sm:flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-white bg-green-700 hover:bg-green-800 rounded-md transition-colors"
                             >
                                 <BookOpen className="w-4 h-4" />
-                                Sign in
+                                Sign in as Author
                             </Link>
                         )}
 

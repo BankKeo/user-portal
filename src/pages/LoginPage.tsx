@@ -33,7 +33,7 @@ export default function LoginPage() {
             {/* Right panel — sign-in form */}
             <div className="flex-1 flex items-center justify-center px-4 py-12 bg-gray-50 dark:bg-gray-950">
                 <div className="w-full max-w-sm">
-                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Sign in Author</h1>
+                    <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">Sign in As Author</h1>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-8">
                         {redirect.startsWith("/submit")
                             ? "Sign in to submit a manuscript to JESAM."
