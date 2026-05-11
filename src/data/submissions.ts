@@ -1,0 +1,62 @@
+import type { Article } from "../types/index";
+
+// Pre-seeded submissions for the demo user (marko.peric@unizg.hr)
+export const MOCK_SUBMISSIONS: Article[] = [
+  {
+    id: "sub-001",
+    title: "Dissolved Oxygen Dynamics in Oligotrophic Alpine Lakes: Responses to Summer Heat Waves",
+    author: "Marko Perić",
+    email: "marko.peric@unizg.hr",
+    category: "water-resources",
+    status: "Under Review",
+    submitted: "2025-03-20",
+    reviewers: ["Dr. Sarah Chen", "Prof. Luka Horvat"],
+    plagScore: 4,
+    abstract: "This study examines dissolved oxygen fluctuations in five oligotrophic alpine lakes in the Dinaric Alps in response to the 2024 summer heat wave. Continuous high-resolution sensor data reveal suppressed hypolimnetic oxygen renewal and accelerated stratification onset, with implications for cold-water fish habitats and drinking water reservoir management.",
+    keywords: ["alpine lakes", "dissolved oxygen", "heat waves", "limnology", "stratification"],
+    timeline: [
+      { date: "2025-03-20", action: "Manuscript submitted", by: "Marko Perić" },
+      { date: "2025-03-26", action: "Desk review passed — sent to peer review", by: "Editorial Office" },
+      { date: "2025-04-01", action: "Plagiarism check completed (4%)", by: "System" },
+      { date: "2025-04-04", action: "Assigned to two peer reviewers", by: "Editor-in-Chief" },
+    ],
+  },
+  {
+    id: "sub-002",
+    title: "Heavy Metal Accumulation in Riparian Soils Along the Sava River: Seasonal Patterns and Source Apportionment",
+    author: "Marko Perić",
+    email: "marko.peric@unizg.hr",
+    category: "water-resources",
+    status: "Revision Required",
+    submitted: "2025-01-10",
+    reviewers: ["Prof. Ivan Novak"],
+    plagScore: 2,
+    abstract: "Riparian soils along a 340 km transect of the Sava River were sampled in four seasons and analysed for Cd, Cu, Pb, Zn, Ni, and Cr. Enrichment factors and positive matrix factorisation identified traffic and industrial smelting as dominant anthropogenic sources, with spring flood pulses exporting contaminated material to downstream floodplains.",
+    keywords: ["heavy metals", "riparian soils", "Sava River", "source apportionment", "seasonal variation"],
+    timeline: [
+      { date: "2025-01-10", action: "Manuscript submitted", by: "Marko Perić" },
+      { date: "2025-01-16", action: "Desk review passed — sent to peer review", by: "Editorial Office" },
+      { date: "2025-01-20", action: "Plagiarism check completed (2%)", by: "System" },
+      { date: "2025-01-23", action: "Assigned to one peer reviewer", by: "Editor-in-Chief" },
+      { date: "2025-02-14", action: "Peer review completed", by: "Reviewer 1" },
+      { date: "2025-02-21", action: "Decision: Minor revision required", by: "Editor-in-Chief" },
+      { date: "2025-02-21", action: "Revision request sent to author", by: "Editorial Office" },
+    ],
+  },
+  {
+    id: "sub-003",
+    title: "Phytoplankton Community Shifts in the Northern Adriatic Under Elevated Sea Surface Temperatures",
+    author: "Marko Perić",
+    email: "marko.peric@unizg.hr",
+    category: "marine-ecosystems",
+    status: "Submitted",
+    submitted: "2025-04-30",
+    reviewers: [],
+    plagScore: 0,
+    abstract: "We analysed phytoplankton community composition across 24 stations in the Northern Adriatic during 2022–2024, coinciding with record sea surface temperatures. Dinoflagellate biomass increased by 41% relative to the 2010–2019 baseline, while diatom abundance declined, suggesting a regime shift with consequences for higher trophic levels and the regional carbon pump.",
+    keywords: ["phytoplankton", "Adriatic Sea", "sea surface temperature", "harmful algal blooms", "regime shift"],
+    timeline: [
+      { date: "2025-04-30", action: "Manuscript submitted", by: "Marko Perić" },
+    ],
+  },
+];
